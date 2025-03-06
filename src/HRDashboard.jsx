@@ -63,18 +63,6 @@ const HRDashboard = () => {
     };
 
     // Check-In Function
-    const handleCheckIn = async (employeeId) => {
-        try {
-            const response = await axios.post(`http://localhost:5000/api/attendance/check-in`, 
-                { employeeId }, 
-                { withCredentials: true } // ✅ Ensure cookies are sent
-            );
-            alert(response.data.message);
-        } catch (error) {
-            console.error("Error checking in:", error.response ? error.response.data : error);
-            alert("Failed to check in");
-        }
-    };
 
     // Submit Form (Only HR can add employees)
     const handleSubmit = async (e) => {
