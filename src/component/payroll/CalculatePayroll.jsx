@@ -15,7 +15,7 @@ const CalculatePayroll = () => {
             alert("Please fill all fields!");
             return;
         }
-
+    
         try {
             const response = await axios.post("http://localhost:5000/api/payroll/calculate", {
                 employeeId,
@@ -23,15 +23,25 @@ const CalculatePayroll = () => {
                 totalDays,
                 presentDays: Number(presentDays),
             });
-
-            setCalculatedSalary(response.data.calculatedSalary);
+    
+            console.log("Payroll Response:", response.data); // Debugging
+    
+            // Ensure calculatedSalary is valid before setting it
+            if (response.data && typeof response.data.calculatedSalary === "number") {
+                setCalculatedSalary(response.data.calculatedSalary);
+            } else {
+                setCalculatedSalary(null); // Handle case where salary is missing
+            }
+    
             alert("Payroll calculated successfully!");
-            navigate("/payroll-status"); // Navigate to Payroll Status page
-
+            navigate("/payroll-status");
+    
         } catch (error) {
+            console.error("Payroll calculation error:", error);
             alert("Payroll calculation failed! " + (error.response?.data?.message || ""));
         }
     };
+    
 
     return (
         <div className="container">
