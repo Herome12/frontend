@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./EmployeeCheckInOut.css"; // Add styling if needed
-import { Navigate, useNavigate } from "react-router-dom";
 
 const EmployeeCheckInOut = () => {
     const [employeeId, setEmployeeId] = useState("");
@@ -18,8 +18,6 @@ const EmployeeCheckInOut = () => {
             await axios.post("https://backend-2-q0tl.onrender.com/api/attendance/check-in", { employeeId });
             setIsCheckedIn(true);
             alert("Check-in successful!");
-            navigate("/home")
-            
         } catch (error) {
             alert(error.response?.data?.error || "Check-in failed");
         } finally {
@@ -46,7 +44,7 @@ const EmployeeCheckInOut = () => {
     return (
         <div className="checkin-container">
             <h2>Employee Attendance</h2>
-            
+
             <input
                 type="text"
                 placeholder="Enter Employee ID"
@@ -71,6 +69,12 @@ const EmployeeCheckInOut = () => {
                     className="checkout-btn"
                 >
                     {loading ? "Checking Out..." : "Check Out"}
+                </button>
+                <button 
+                    onClick={() => navigate("/home")} 
+                    className="home-btn"
+                >
+                    Go to Home
                 </button>
             </div>
         </div>
