@@ -45,7 +45,12 @@ const Home = () => {
                     </button>
                 </div>
             </div>
-
+            <div className={styles.logoutWrapper}>
+                <button className={styles.logoutButton} onClick={() => navigate("/login")}>
+                    LogIn
+                </button>
+            </div>
+         
             {/* Logout Button - Positioned at the Bottom */}
             <div className={styles.logoutWrapper}>
                 <button className={styles.logoutButton} onClick={() => navigate("/logout")}>
