@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./EmployeeCheckInOut.css"; // Add styling if needed
@@ -8,6 +8,26 @@ const EmployeeCheckInOut = () => {
     const [isCheckedIn, setIsCheckedIn] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    // ✅ Check Employee Attendance Status
+    useEffect(() => {
+        const checkStatus = async () => {
+            if (!employeeId) return;
+
+            try {
+                const response = await axios.get(`https://backend-2-q0tl.onrender.com/api/attendance/status/${employeeId}`);
+                if (response.data.attendance) {
+                    setIsCheckedIn(true);  // Employee is checked in
+                } else {
+                    setIsCheckedIn(false); // Employee is not checked in
+                }
+            } catch (error) {
+                setIsCheckedIn(false); // If no record is found, assume not checked in
+            }
+        };
+
+        checkStatus();
+    }, [employeeId]); // Runs whenever employeeId changes
 
     // ✅ Handle Check-In
     const handleCheckIn = async () => {
