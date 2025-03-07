@@ -26,25 +26,25 @@ const HRDashboard = () => {
 
     // Fetch Employees & Check User Role
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await axios.get("https://backend-2-q0tl.onrender.com/api/employees/me", {
-                    withCredentials: true, // ✅ Send cookies with request
-                });
+        // const fetchUserData = async () => {
+        //     try {
+        //         const response = await axios.get("https://backend-2-q0tl.onrender.com/api/employees/me", {
+        //             withCredentials: true, // ✅ Send cookies with request
+        //         });
 
-                setUserRole(response.data.role);
+        //         setUserRole(response.data.role);
 
-                if (response.data.role !== "HR") {
-                    alert("Access denied! Only HR can access this dashboard.");
-                    navigate("/");
-                }
-            } catch (error) {
-                console.error("Error fetching user data:", error);
-                navigate("/login");
-            }
-        };
+        //         if (response.data.role !== "HR") {
+        //             alert("Access denied! Only HR can access this dashboard.");
+        //             navigate("/");
+        //         }
+        //     } catch (error) {
+        //         console.error("Error fetching user data:", error);
+        //         navigate("/login");
+        //     }
+        // };
 
-        fetchUserData();
+        // fetchUserData();
 
         axios.get("https://backend-2-q0tl.onrender.com/api/employees", { withCredentials: true })
             .then(response => setEmployees(response.data))
