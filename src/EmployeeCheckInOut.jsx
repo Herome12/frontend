@@ -13,7 +13,7 @@ const EmployeeCheckInOut = () => {
 
         setLoading(true);
         try {
-            await axios.post("http://localhost:5000/api/attendance/check-in", { employeeId });
+            await axios.post("https://backend-2-q0tl.onrender.com/api/attendance/check-in", { employeeId });
             setIsCheckedIn(true);
             alert("Check-in successful!");
         } catch (error) {
@@ -29,7 +29,7 @@ const EmployeeCheckInOut = () => {
 
         setLoading(true);
         try {
-            await axios.post("http://localhost:5000/api/attendance/check-out", { employeeId });
+            await axios.post("https://backend-2-q0tl.onrender.com/api/attendance/check-out", { employeeId });
             setIsCheckedIn(false);
             alert("Check-out successful!");
         } catch (error) {

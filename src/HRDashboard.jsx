@@ -28,7 +28,7 @@ const HRDashboard = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/employees/me", {
+                const response = await axios.get("https://backend-2-q0tl.onrender.com/api/employees/me", {
                     withCredentials: true, // ✅ Send cookies with request
                 });
 
@@ -46,7 +46,7 @@ const HRDashboard = () => {
 
         fetchUserData();
 
-        axios.get("http://localhost:5000/api/employees", { withCredentials: true })
+        axios.get("https://backend-2-q0tl.onrender.com/api/employees", { withCredentials: true })
             .then(response => setEmployees(response.data))
             .catch(error => console.error("Error fetching employees:", error));
     }, [navigate]);
@@ -63,18 +63,18 @@ const HRDashboard = () => {
     };
 
     // Check-In Function
-    const handleCheckIn = async (employeeId) => {
-        try {
-            const response = await axios.post(`http://localhost:5000/api/attendance/check-in`, 
-                { employeeId }, 
-                { withCredentials: true } // ✅ Ensure cookies are sent
-            );
-            alert(response.data.message);
-        } catch (error) {
-            console.error("Error checking in:", error.response ? error.response.data : error);
-            alert("Failed to check in");
-        }
-    };
+    // const handleCheckIn = async (employeeId) => {
+    //     try {
+    //         const response = await axios.post(`http://localhost:5000/api/attendance/check-in`, 
+    //             { employeeId }, 
+    //             { withCredentials: true } // ✅ Ensure cookies are sent
+    //         );
+    //         alert(response.data.message);
+    //     } catch (error) {
+    //         console.error("Error checking in:", error.response ? error.response.data : error);
+    //         alert("Failed to check in");
+    //     }
+    // };
 
     // Submit Form (Only HR can add employees)
     const handleSubmit = async (e) => {
@@ -96,7 +96,7 @@ const HRDashboard = () => {
     
         try {
             console.log("Submitting form data:", formData);
-            const response = await axios.post("http://localhost:5000/api/employees/register", data, {
+            const response = await axios.post("https://backend-2-q0tl.onrender.com/api/employees/register", data, {
                 headers: { "Content-Type": "multipart/form-data" }
             });
     

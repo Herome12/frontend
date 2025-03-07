@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 const CalculatePayroll = () => {
     const [employeeId, setEmployeeId] = useState("");
     const [baseSalary, setBaseSalary] = useState("");
-    const [totalDays, setTotalDays] = useState(30); // Default total days in a month
+    // const [totalDays, setTotalDays] = useState(30); // Default total days in a month
     const [presentDays, setPresentDays] = useState("");
     const [calculatedSalary, setCalculatedSalary] = useState(null);
     const navigate = useNavigate();
-
+const totalDays=30;
     const handlePayrollCalculation = async () => {
         if (!employeeId || !baseSalary || !presentDays) {
             alert("Please fill all fields!");

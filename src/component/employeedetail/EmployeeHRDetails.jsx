@@ -13,7 +13,7 @@ const EmployeeHRDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/employees");
+                const response = await axios.get("https://backend-2-q0tl.onrender.com/api/employees");
                 const data = response.data;
 
                 // Separate HR and employees

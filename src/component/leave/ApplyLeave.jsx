@@ -17,7 +17,7 @@ const ApplyLeave = () => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/api/leave/apply", {
+            const response = await axios.post("https://backend-2-q0tl.onrender.com/api/leave/apply", {
                 employeeId, // Include employeeId in request
                 leaveType,
                 startDate,

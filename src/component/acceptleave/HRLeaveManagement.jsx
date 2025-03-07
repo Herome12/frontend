@@ -5,14 +5,14 @@ const HRLeaveManagement = () => {
     const [leaveRequests, setLeaveRequests] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/leave/all")
+        axios.get("https://backend-2-q0tl.onrender.com/api/leave/all")
             .then(response => setLeaveRequests(response.data))
             .catch(error => console.error("Error fetching leaves:", error));
     }, []);
 
     const handleLeaveAction = async (leaveId, status) => {
         try {
-            await axios.put("http://localhost:5000/api/leave/update", { leaveId, status });
+            await axios.put("https://backend-2-q0tl.onrender.com/api/leave/update", { leaveId, status });
             alert(`Leave ${status.toLowerCase()} successfully`);
             setLeaveRequests(prev => prev.filter(leave => leave._id !== leaveId));
         } catch (error) {

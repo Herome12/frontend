@@ -8,7 +8,7 @@ const CheckInOut = () => {
     useEffect(() => {
         const fetchAttendance = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/attendance/all");
+                const response = await axios.get("https://backend-2-q0tl.onrender.com/api/attendance/all");
                 setAttendance(response.data);
             } catch (error) {
                 console.error("Error fetching attendance:", error);
