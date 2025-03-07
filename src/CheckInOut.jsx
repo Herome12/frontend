@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./HrCss.css";
 
 const CheckInOut = () => {
     const [attendance, setAttendance] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchAttendance = async () => {
@@ -21,6 +23,7 @@ const CheckInOut = () => {
     return (
         <div className="container">
             <h2>Employee Attendance Status</h2>
+            <button className="home-button" onClick={() => navigate("/")}>Go to Home</button>
             
             <table className="attendance-table">
                 <thead>

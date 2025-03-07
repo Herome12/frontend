@@ -40,6 +40,7 @@ const Home = () => {
                     <button className={styles.button} onClick={() => navigate("/employee")}>
                         Check-in/Out
                     </button>
+                   
                     <button className={styles.button} onClick={() => navigate("/apply-leave")}>
                         Apply Leave
                     </button>
@@ -57,6 +58,7 @@ const Home = () => {
                     Logout
                 </button>
             </div>
+            
         </div>
     );
 };
