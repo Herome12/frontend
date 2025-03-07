@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./EmployeeCheckInOut.css"; // Add styling if needed
+import { Navigate, useNavigate } from "react-router-dom";
 
 const EmployeeCheckInOut = () => {
     const [employeeId, setEmployeeId] = useState("");
     const [isCheckedIn, setIsCheckedIn] = useState(false);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     // ✅ Handle Check-In
     const handleCheckIn = async () => {
@@ -16,6 +18,8 @@ const EmployeeCheckInOut = () => {
             await axios.post("https://backend-2-q0tl.onrender.com/api/attendance/check-in", { employeeId });
             setIsCheckedIn(true);
             alert("Check-in successful!");
+            navigate("/home")
+            
         } catch (error) {
             alert(error.response?.data?.error || "Check-in failed");
         } finally {
