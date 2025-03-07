@@ -63,6 +63,7 @@ const HRDashboard = () => {
     };
 
     // Check-In Function
+
     // const handleCheckIn = async (employeeId) => {
     //     try {
     //         const response = await axios.post(`http://localhost:5000/api/attendance/check-in`, 
@@ -75,6 +76,8 @@ const HRDashboard = () => {
     //         alert("Failed to check in");
     //     }
     // };
+
+
 
     // Submit Form (Only HR can add employees)
     const handleSubmit = async (e) => {
