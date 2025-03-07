@@ -6,7 +6,7 @@ const PayrollStatus = () => {
     const [payrolls, setPayrolls] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/payroll/all")
+        axios.get("https://backend-2-q0tl.onrender.com/api/payroll/all")
             .then(response => setPayrolls(response.data))
             .catch(error => console.error("Error fetching payroll data:", error));
     }, []);

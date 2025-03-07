@@ -17,7 +17,7 @@ const CalculatePayroll = () => {
         }
     
         try {
-            const response = await axios.post("http://localhost:5000/api/payroll/calculate", {
+            const response = await axios.post("https://backend-2-q0tl.onrender.com/api/payroll/calculate", {
                 employeeId,
                 baseSalary: Number(baseSalary),
                 totalDays,
